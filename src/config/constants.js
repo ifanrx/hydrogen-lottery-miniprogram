@@ -1,7 +1,7 @@
 const {NODE_ENV} = process.env
 export const DEBUG = NODE_ENV !== 'production'
-export const BAAS_CLIENT_ID = '849144d9131d00651021'
-export const APP_ID = 'wx335411651396fbdd'
+export const BAAS_CLIENT_ID = '' // client id
+export const APP_ID = '' // app id
 
 export const ROUTE = {
   INDEX: '/pages/index/index',
@@ -11,23 +11,27 @@ export const ROUTE = {
   LOTTERY_RULES: '/pages/lotteryRules/lotteryRules',
   LOTTERY_CONTACT: '/pages/lotteryContact/lotteryContact',
 }
-export const CONTENT_GROUP = '1528194988944866'
+// 活动规则内容库 id
+export const CONTENT_GROUP = ''
+// 测试数据表 id
 const DEBUG_TABLE_ID = {
-  'LOTTERY': '38828',
-  'USER_LOTTERY_RECORD': '38856',
-  'WORD_LIST': '39698',
-  'RULES_CONTENT': '1528195001879328',
-  'CONTACT_INFO': '39584',
+  'LOTTERY': '',
+  'USER_LOTTERY_RECORD': '',
+  'WORD_LIST': '',
+  'RULES_CONTENT': '',
+  'CONTACT_INFO': '',
 }
+// 线上数据表 id
 const PROD_TABLE_ID = {
-  'LOTTERY': '38825',
-  'USER_LOTTERY_RECORD': '38855',
-  'WORD_LIST': '38836',
-  'RULES_CONTENT': '1528195008970490',
-  'CONTACT_INFO': '39583',
+  'LOTTERY': '',
+  'USER_LOTTERY_RECORD': '',
+  'WORD_LIST': '',
+  'RULES_CONTENT': '',
+  'CONTACT_INFO': '',
 }
-const PROD_WORD_LIST_ID = '5b1f60556020900a1c0ba83f'
-const DEBUG_WORD_LIST_ID = '5b19f8985a79280ff5678af7'
+// word list 表 record id
+const PROD_WORD_LIST_ID = ''
+const DEBUG_WORD_LIST_ID = ''
 
 export const WECHAT_SCENE = {
   'FROM_CHAT': 'FROM_CHAT',

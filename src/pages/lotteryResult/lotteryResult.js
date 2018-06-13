@@ -127,7 +127,7 @@ Page({
   },
 
   navToMiniprogram() {
-    const appId = 'wxe5e54ad27644a58a'
+    const appId = '' // 跳转小程序 app id
     wx.navigateToMiniProgram({
       appId,
       path: '/pages/index/index',
