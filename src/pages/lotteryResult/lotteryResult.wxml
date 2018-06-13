@@ -1,0 +1,99 @@
+<!--lottery-result.wxml-->
+<import src="../../templates/placeholderLoadingModal/placeholderLoadingModal.wxml" />
+
+<view class="page-container" style="margin-top:{{pageContainerMarginTop}};padding-top: {{pageContainerPaddingTop}}" wx:if="{{inited}}">
+  <view class="page-head-line" style="height: {{pageContainerMarginTop}};"></view>
+  <view class="user-lottery-state">
+    <view class="user-lottery-state-logo-wrapper">
+      <view class="emoji" wx:if="{{iAmLucky}}">
+        <image class="icon-hungry" src="{{ICON_HUNGRY}}"></image>
+      </view>
+      <view class="avatar" wx:elif="{{iHasLuckyFriend}}">
+        <image class="avatar-item" src="{{myLuckyFriendRecord[0].avatar}}"></image>
+        <image class="avatar-item self" src="{{myCurrentLotteryRecord.avatar}}"></image>
+      </view>
+    </view>
+    <view class="user-lottery-state-label">
+      <block wx:if="{{!joinedCurrent}}">
+        由{{currentLottery.prize_sponsor_name}}赞助，共 {{currentLottery.lucky_limit}} 份
+      </block>
+      <block wx:elif="{{iAmLucky}}">
+        {{wordListData.result__lottery_lucky_by_self[0]}}
+      </block>
+      <block wx:elif="{{iHasLuckyFriend}}">
+        {{wordListData.result__lottery_lucky_by_friends[0]}}<text style="color:#128bf8"> {{myLuckyFriendName}} </text><text>{{myLuckyFriendRecord.length > 1 ? ('等' + myLuckyFriendRecord.length + '人') : ''}}</text>{{wordListData.result__lottery_lucky_by_friends[1]}}
+      </block>
+      <block wx:else>
+        {{wordListData.result__lottery_fail_tip[0]}}
+      </block>
+    </view>
+    <view class="user-lottery-state-text">
+      <block wx:if="{{!joinedCurrent}}">
+        {{wordListData.result__not_join_tips}}
+      </block>
+      <block wx:elif="{{iAmLucky}}">
+        {{wordListData.result__lottery_lucky_by_self[1]}}
+      </block>
+      <block wx:elif="{{iHasLuckyFriend}}">
+        {{wordListData.result__lottery_lucky_by_friends[2]}}
+      </block>
+      <block wx:else>
+        {{wordListData.result__lottery_fail_tip[1]}}
+      </block>
+    </view>
+    <view class="action-group">
+      <button class="btn-customer-service btn-action" open-type="contact">{{wordListData.common__contact_service_btn}}</button>
+      <navigator class="btn-customer-service btn-action" url="{{LOTTERY_CONTACT}}">{{wordListData.index__add_contact_info}}</navigator>
+
+      <!--
+        <view class="help-text-wrapper" wx:else>
+        <view class="help-text-for-who-is-not-lucky">
+          {{wordListData.result__lottery_fail_tip[3]}}
+          <view class="line">👇</view>
+        </view>
+      </view>
+       -->
+    </view>
+  </view>
+
+  <form bindsubmit="handleNavToProductDetail" report-submit>
+    <button formType="submit" class="latest-active-lottery ana_shop ana_link">
+      <view class="latest-active-lottery-background"></view>
+      <view class="latest-active-lottery-content">
+        <view class="title"></view>
+        <view class="latest-active-lottery-prize-wrapper">
+          <view class="prize-image bg-cover" style="background-image: url({{iAmLucky || iHasLuckyFriend ? currentLottery.prize_image : currentLottery.lotteryFailImage}});"></view>
+          <view class="info-block">
+            <image class="emoji" src="{{ICON_HEART_FACE}}"></image>
+            <view class="prize-info">
+              <view class="name">{{iAmLucky ? currentLottery.prize_name : (iHasLuckyFriend ? currentLottery.lotteryByFirendTips : currentLottery.lotteryFailTips)}}</view>
+              <view class="nav-to-detail">{{wordListData.common__go_prize_detail}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </button>
+  </form>
+  <view class="current-lottery-lucky">
+    <view class="title">{{wordListData.result__lottery_lucky_title}}</view>
+    <view class="list">
+      <view class="avatar-wrapper" wx:for="{{currentLotteryLuckyRecord}}" wx:key="{{index}}">
+        <image class="avatar" src="{{item.avatar}}"></image>
+      </view>
+    </view>
+    <view class="additional-description-for-lucky">
+      {{wordListData.result__lottery_sponsor_tip}}
+    </view>
+  </view>
+  <view class="advertisement">{{currentLottery.prize_sponsor_slogan}}</view>
+  <form bindsubmit="handleRuleClicked" report-submit>
+    <button formType="submit">
+      <view class="activity-rule ana_link">{{wordListData.common__lottery_rule}}</view>
+    </button>
+  </form>
+</view>
+
+<view class="page-container" style="margin-top:{{pageContainerMarginTop}};padding-top: {{pageContainerPaddingTop}}" wx:if="{{!inited}}">
+  <!-- placeholder loading modal -->
+  <template is="placeholderLoadingModal"></template>
+</view>

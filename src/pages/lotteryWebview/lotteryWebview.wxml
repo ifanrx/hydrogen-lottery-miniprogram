@@ -1,0 +1,5 @@
+<import src="../../templates/placeholderLoadingModal/placeholderLoadingModal.wxml" />
+
+<view class="webview-page">
+  <web-view src="{{url}}"></web-view>
+</view>

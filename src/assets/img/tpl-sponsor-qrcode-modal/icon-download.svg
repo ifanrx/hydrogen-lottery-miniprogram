@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>下载</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="弹出二维码" transform="translate(-129.000000, -431.000000)" fill="#8E6630" fill-rule="nonzero">
+            <g id="弹框" transform="translate(48.000000, 154.000000)">
+                <g id="Group-3" transform="translate(81.000000, 273.000000)">
+                    <g id="下载" transform="translate(0.000000, 4.000000)">
+                        <path d="M0.0166218377,17.9919066 L0.0166218377,16.6594846 L0.0166218377,15.3270627 L0.0166218377,13.9946407 L2.01287588,13.9946407 L2.01287588,15.3270627 L15.9864436,15.3270627 L15.9864436,13.9946407 L17.9827187,13.9946407 L17.9827187,15.3270627 L17.9827187,16.6594846 L17.9827187,17.9919066 L0.0166218377,17.9919066 Z M2.01287588,6.00061486 L6.67078091,6.06853944 L6.67078091,0.00512705492 L11.3286859,0.00512705492 L11.3286859,6.0027645 L15.9865699,6.00076238 L9.07142217,13.328651 L2.01287588,6.00061486 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

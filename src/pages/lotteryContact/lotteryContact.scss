@@ -1,0 +1,56 @@
+.add-contact-page {
+  font-size: 28rpx;
+  color: #888888;
+  text-align: center;
+
+  .title {
+    font-size: 36rpx;
+    font-weight: bold;
+    margin: 60rpx auto;
+    text-align: center;
+    color: #000;
+  }
+
+  .desc {
+    width: 448rpx;
+    margin: 0 auto;
+    margin-bottom: 60rpx;
+  }
+
+  .input {
+    width: 610rpx;
+    height: 100rpx;
+    border-radius: 50rpx;
+    border: 1px solid #DADADA;
+    margin: 40rpx auto;
+    text-align: left;
+    display: inline-block;
+    padding-left: 30rpx;
+  }
+
+  .input-placeholder {
+    color: #A8A8A8;
+    font-size: 28rpx;
+    line-height: 100rpx;
+    display: inline-block;
+    text-align: left;
+  }
+
+  .bottom-btns {
+    width: 100%;
+    position: fixed;
+    bottom: 150rpx;
+  }
+
+  .btn {
+    width: 600rpx;
+    height: 108rpx;
+    color: #fff;
+    background-color: #128BF8;
+    font-size: 36rpx;
+    line-height: 108rpx;
+    border-radius: 100rpx;
+    margin: 20rpx auto;
+    display: inline-block;
+  }
+}

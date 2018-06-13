@@ -1,0 +1,19 @@
+
+<import src="../../templates/placeholderLoadingModal/placeholderLoadingModal.wxml" />
+
+<view class="add-contact-page">
+  <block wx:if="{{!inited}}">
+    <template is="placeholderLoadingModal"></template>
+  </block>
+  <block wx:else>
+    <view class="title">联系方式</view>
+    <view class="desc">我们将对您的个人信息进行严格保密，保证仅用户奖品发放使用</view>
+    <input class="input" value="{{contactInfo.phone}}" placeholder="请填写手机号" type="number" bindinput="handleInput" data-name="phone" />
+    <input class="input" value="{{contactInfo.wechat_id}}" placeholder="请填写微信号" type="text" bindinput="handleInput" data-name="wechat_id" />
+    <view class="bottom-btns">
+      <view class="update-contact-info-tips" wx:if="{{!isNew}}">如需修改联系方式，请点击下方更改按钮</view>
+      <button bindtap="handleContactInfoSubmit" class='btn'>{{!isNew ? '更改联系方式' : '保存'}}</button>
+      <navigator wx:if="{{!isNew}}" open-type="navigateBack">返回</navigator>
+    </view>
+  </block>
+</view>

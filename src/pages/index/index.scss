@@ -1,0 +1,490 @@
+@import '../../templates/placeholderLoadingModal/placeholderLoadingModal.scss';
+@import '_mixins';
+
+.color-tip {
+  color: $color-coral;
+}
+
+.page-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #fff;
+  .page-head-line {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 999;
+  }
+  .page-contact {
+    position: fixed;
+    bottom: 145rpx;
+    right: -6rpx;
+    width: 302rpx;
+    height: 108rpx;
+    &.b-90rpx {
+      bottom: 90rpx;
+    }
+    &.b-190rpx {
+      bottom: 190rpx;
+    }
+    &.b-145rpx {
+      bottom: 145rpx;
+    }
+    &.t-220rpx {
+      top: 220rpx;
+      bottom: 0;
+    }
+    &.t-180rpx {
+      top: 180rpx;
+      bottom: 0;
+    }
+  }
+  .page-footer__fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 500px;
+    background-color: #fff;
+    z-index: -1;
+  }
+
+  /* page-hd */
+  .page-hd {
+    width: 100%;
+    background-color: $color-bg;
+    &.not-joined {
+      height: 600rpx;
+    }
+    .un-joined,
+    .has-joined {
+      position: relative;
+      padding-top: 160rpx;
+      padding-left: 60rpx;
+    }
+    .has-joined {
+      .page-hd__count-down {
+        font-size: 42rpx;
+        color: #fff;
+        font-weight: bold;
+      }
+    }
+    .page-hd__title {
+      font-size: 42rpx;
+      font-weight: bold;
+      color: #fff;
+    }
+    .page-hd__sponsor-name {
+      font-size: 24rpx;
+      color: rgba(255, 255, 255, .72);
+      font-weight: normal;
+      margin: 10rpx 0;
+
+      .sponsor-name {
+        color: #fff;
+        font-weight: bold;
+      }
+    }
+    .page-hd__prize-btn {
+      display: inline-block;
+      width: 250rpx;
+      height: 100rpx;
+      .page-hd__prize-btn-item {
+        width: 160rpx;
+        height: 42rpx;
+        margin-top: 24rpx;
+        line-height: 42rpx;
+        text-align: center;
+        color: $color-coral;
+        font-size: 20rpx;
+        border-radius: 20rpx;
+        background-color: #fff;
+      }
+    }
+    .page-hd__add-contanct-tip {
+      position: absolute;
+      left: 520rpx;
+      top: 265rpx;
+      display: flex;
+      flex-direction: column;
+      color: #fff;
+      font-size: 24rpx;
+      font-weight: bold;
+      transform: rotateZ(30deg);
+      image {
+        width: 30rpx;
+        height: 30rpx;
+      }
+    }
+    .page-hd__contact-tip {
+      position: absolute;
+      left: 358rpx;
+      top: 270rpx;
+      display: flex;
+      font-size: 24rpx;
+      color: #fff;
+      .contact-tip1 {
+        margin-right: 20rpx;
+        padding-top: 20rpx;
+      }
+      .contact-tip2 {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    .page-hd__prize-image {
+      height: 388rpx;
+      width: 100vw;
+      background-size: cover;
+    }
+    .page-hd__person_joined {
+      min-height: 60rpx;
+      .friends-count {
+        font-size: 24rpx;
+        color: rgba(255, 255, 255, 0.72);
+        font-weight: 300;
+      }
+      .person-joined-title {
+        margin-top: 24rpx;
+        margin-bottom: 20rpx;
+        font-size: 24rpx;
+        text-align: center;
+      }
+      .person-joined-list {
+        width: 600rpx;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 20rpx;
+        image {
+          width: 60rpx;
+          height: 60rpx;
+          margin-right: 16rpx;
+          margin-bottom: 16rpx;
+          border-radius: 50%;
+          border: solid 6rpx #fff;
+        }
+        view {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 40rpx;
+          height: 60rpx;
+          padding: 0 10rpx;
+          text-align: center;
+          background-color: #fff;
+          color: $color-gray;
+          font-weight: 300;
+          border-radius: 50%;
+          border: solid 6rpx #fff;
+          .dot {
+            width: 10rpx;
+            height: 10rpx;
+            margin: 0 3rpx;
+            border-radius: 50%;
+            background-color: #999;
+          }
+        }
+      }
+    }
+  }
+
+  /* page-bd */
+  .page-bd {
+    position: relative;
+    &.joined {
+      padding-bottom: 150rpx;
+    }
+    .not-joined {
+      margin-top: 50rpx;
+    }
+    .page-bd__prize-detail {
+      width: 100%;
+      margin-top: 30rpx;
+      min-height: 120rpx;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      &.joined {
+        margin-top: 80rpx;
+        font-size: 30rpx;
+      }
+      >text:first-child {
+        font-size: 36rpx;
+      }
+      .goods {
+        font-size: 28rpx;
+        color: $color-brown;
+        margin: 6rpx 0;
+        &.joined {
+          font-weight: 300;
+        }
+      }
+      .page-bd__sponsor-name {
+        font-size: 24rpx;
+        color: $color-gray;
+        font-weight: 300;
+        .sponsor-name {
+          font-size: 24rpx;
+        }
+      }
+    }
+    .page-bd__prize-form {
+      display: inline-block;
+      width: 700rpx;
+      margin: -220rpx 25rpx 0;
+      &.joined {
+        margin: -30rpx 25rpx 0;
+      }
+      &.no-friends {
+        margin: -10rpx 25rpx 0;
+      }
+      .page-bd__prize-card {
+        position: relative;
+        width: 700rpx;
+        border-radius: 40rpx;
+        box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.15);
+        background-color: #fff;
+        .page-bd__prize-image {
+          width: 668rpx;
+          height: 296rpx;
+          margin: 16rpx;
+          background-size: cover;
+          border-radius: 40rpx;
+        }
+        .page-bd__prize-tip {
+          display: flex;
+          padding-left: 44rpx;
+          padding-top: 16rpx;
+          height: 112rpx;
+          image {
+            width: 92rpx;
+            height: 92rpx;
+          }
+          .page-bd__prize-tip-item {
+            flex: 1;
+            max-width: 500rpx;
+            margin-top: 20rpx;
+            margin-left: 36rpx;
+            font-size: 24rpx;
+            line-height: 30rpx;
+            font-weight: bold;
+            text-align: left;
+            view {
+              @include elps();
+              &:last-child {
+                font-size: 20rpx;
+              }
+            }
+          }
+        }
+      }
+    }
+    .page-bd__person_joined {
+      min-height: 60rpx;
+      margin-top: 40rpx;
+      .friends-count {
+        font-size: 24rpx;
+        color: $color-brown;
+        text-align: center;
+        font-weight: 300;
+      }
+      .person-joined-title {
+        margin-top: 24rpx;
+        margin-bottom: 20rpx;
+        font-size: 24rpx;
+        text-align: center;
+      }
+      .person-joined-list {
+        width: 512rpx;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0 auto 42rpx;
+        &.friends {
+          margin: 48rpx auto 18rpx;
+        }
+        image {
+          width: 60rpx;
+          height: 60rpx;
+          margin-right: 12rpx;
+          margin-bottom: 12rpx;
+          border-radius: 50%;
+          border: solid 6rpx #ededed;
+        }
+        view {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 40rpx;
+          height: 60rpx;
+          padding: 0 10rpx;
+          text-align: center;
+          background-color: #fff;
+          border-radius: 50%;
+          color: $color-gray;
+          font-weight: 300;
+          border: solid 6rpx #ededed;
+          .dot {
+            width: 10rpx;
+            height: 10rpx;
+            margin: 0 3rpx;
+            border-radius: 50%;
+            background-color: $color-gray;
+          }
+        }
+      }
+    }
+    .page-bd__share-tip {
+      position: relative;
+      text-align: center;
+      // &.has-share {
+      //   top: -450rpx;
+      // }
+      .page-bd__share-card {
+        width: 700rpx;
+        margin: 40rpx auto 70rpx;
+        padding: 58rpx 0 38rpx;
+        border-radius: 40rpx;
+        box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.15);
+        background-color: #fff;
+        .share-tip-rule {
+          display: inline-block;
+          .rule-btn {
+            width: auto;
+            margin-top: 28rpx;
+            font-size: 24rpx;
+            color: #4a4a4a;
+            line-height: 34rpx;
+            border-bottom: 1px solid #c9c9c9;
+          }
+        }
+        .share-tip-title {
+          font-weight: bold;
+          margin: 0 auto 10rpx;
+          font-size: 32rpx;
+          .tip-title-item {
+            font-size: 24rpx;
+            color: $color-black;
+            font-weight: normal;
+            margin-top: 10rpx;
+          }
+        }
+      }
+      .share-tip-btn {
+        display: flex;
+        justify-content: center;
+        margin-top: 44rpx;
+        &.test-B {
+          flex-direction: column;
+          .share-to-friend {
+            margin: 20rpx 110rpx 0;
+            button {
+              padding-left: 0;
+            }
+          }
+          .create-poster-btn {
+            margin: 20rpx 110rpx 0;
+            button {
+              padding-left: 0;
+              margin: 0 25rpx 0 0;
+              background-color: #4660ff;
+            }
+          }
+          .btn-share {
+            width: 480rpx;
+          }
+        }
+        .btn-share-qrcode {
+          width: 36rpx;
+          height: 36rpx;
+        }
+        .btn-share {
+          width: 392rpx;
+          height: 84rpx;
+          line-height: 84rpx;
+          font-size: 28rpx;
+          text-align: center;
+          background-color: $color-coral;
+          border-radius: 50rpx;
+          color: #fff;
+          &.no-poster-create {
+            width: 480rpx;
+          }
+        }
+        form {
+          &.share-joined {
+            padding-left: 30rpx;
+            margin: 0 25rpx 0 0;
+          }
+          &.btn-generate-qrcode {
+            position: relative;
+            width: 84rpx;
+            height: 84rpx;
+            border-radius: 50%;
+            background-color: #4660ff;
+            margin: 0 30rpx 0 0;
+            image {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
+          }
+        }
+      }
+      .share-tip-word {
+        margin-top: 54rpx;
+        font-size: 22rpx;
+        color: $color-brown;
+      }
+    }
+    .page-bd__join-lottery {
+      display: flex;
+      flex-direction: column;
+      width: 600rpx;
+      height: 144rpx;
+      margin: 0 auto 38rpx;
+      text-align: center;
+      color: #fff;
+      font-size: 22rpx;
+      font-weight: 300;
+      border-radius: 100rpx;
+      background-color: #128bf8;
+      text {
+        &:first-child {
+          font-size: 42rpx;
+          font-weight: 500;
+        }
+        &:last-child {
+          margin-top: -25rpx;
+        }
+      }
+    }
+    .page-bd__slogan {
+      margin-top: 30rpx;
+      text-align: center;
+      font-weight: bold;
+      font-size: 24rpx;
+      &.joined {
+        color: rgba(255, 255, 255, 0.9);
+        // margin-top: 90rpx;
+      }
+      color: #4a4a4a;
+      view {
+        margin-bottom: 18rpx;
+      }
+      button {
+        width: 100rpx;
+        height: 34rpx;
+        line-height: 34rpx;
+        margin: 0 auto;
+        font-size: 24rpx;
+        border-bottom: 1rpx solid #000;
+        font-weight: bold;
+        color: $color-brown;
+      }
+    }
+  }
+}

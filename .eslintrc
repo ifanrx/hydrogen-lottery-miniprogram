@@ -1,0 +1,68 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+      "standard"
+  ],
+  "env": {
+      "browser": true,
+      "node": true,
+      "es6": true,
+      "mocha": true,
+      "jest": true
+  },
+  "rules": {
+      "import/no-absolute-path": 2,
+      "import/no-extraneous-dependencies": 2,
+      "import/no-mutable-exports": 2,
+      "import/newline-after-import": 1,
+      "import/unambiguous": 0,
+
+      "promise/no-callback-in-promise": 0,
+      "promise/always-return": 0,
+
+      "semi": ["error", "never"],
+      "semi-spacing": [2, { "before": false, "after": true }],
+      "comma-spacing": 0,
+      "no-tabs": 0,
+      "no-console": ["warn"],
+      "comma-dangle": 0,
+      "eqeqeq": ["warn", "always"],
+      "indent": ["error", 2],
+      "padded-blocks": 0,
+      "space-before-function-paren": [1, {
+          "anonymous": "always",
+          "named": "never"
+      }],
+      "brace-style": 0,
+      "operator-linebreak": [1, "before"],
+      "camelcase": 0,
+      "no-useless-constructor": 0,
+      "eol-last": ["error", "never"],
+      "no-multiple-empty-lines": [1, {
+          "max": 2
+      }],
+      "no-unused-vars": [1, {
+          "vars": "all",
+          "args": "after-used",
+          "caughtErrors": "none",
+          "ignoreRestSiblings": true
+      }],
+      "spaced-comment": 0
+  },
+  "globals": {
+      "__DEV__": true,
+      "App": true,
+      "Page": true,
+      "Component": true,
+      "wx": true,
+      "getApp": true,
+      "getCurrentPages": true
+  },
+  "settings": {
+    "import/resolver": {
+        "webpack": {
+            "config": "webpack.config.babel.js"
+        }
+    }
+  }
+}

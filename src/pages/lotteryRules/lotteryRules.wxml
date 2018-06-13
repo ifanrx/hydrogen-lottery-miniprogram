@@ -1,0 +1,16 @@
+<import src="../../templates/placeholderLoadingModal/placeholderLoadingModal.wxml" />
+
+<view class="lottery-rules-page">
+  <block wx:if="{{!inited}}">
+    <template is="placeholderLoadingModal"></template>
+  </block>
+
+  <block wx:else>
+    <wxparser rich-text="{{richText}}" />
+    <form class="back-form" report-submit bindsubmit="back">
+      <button class="btn" form-type="submit">
+      {{wordListData.common__back_lottery_btn}}
+      </button>
+    </form>
+  </block>
+</view>

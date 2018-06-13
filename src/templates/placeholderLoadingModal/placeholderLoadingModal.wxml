@@ -1,0 +1,25 @@
+<template name="placeholderLoadingModal">
+  <view class="timeline-wrapper">
+    <view class="timeline-item">
+      <view class="animated-background">
+        <view class="background-masker header-top"></view>
+        <view class="background-masker header-left"></view>
+        <view class="background-masker header-right"></view>
+        <view class="background-masker header-bottom"></view>
+        <view class="background-masker subheader-left"></view>
+        <view class="background-masker subheader-right"></view>
+        <view class="background-masker subheader-bottom"></view>
+        <view class="background-masker content-top"></view>
+        <view class="background-masker content-first-end"></view>
+        <view class="background-masker content-second-line"></view>
+        <view class="background-masker content-second-end"></view>
+        <view class="background-masker content-third-line"></view>
+        <view class="background-masker content-third-end"></view>
+        <view class="background-masker content-fourth-line"></view>
+        <view class="background-masker content-fourth-end"></view>
+        <view class="background-masker content-fifth-line"></view>
+        <view class="background-masker content-fifth-end"></view>
+      </view>
+    </view>
+  </view>
+</template>

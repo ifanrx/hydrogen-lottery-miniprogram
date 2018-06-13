@@ -1,0 +1,29 @@
+<import src="../../templates/placeholderLoadingModal/placeholderLoadingModal.wxml" />
+
+<view class="lottery-detail-page">
+  <block wx:if="{{!inited}}">
+    <template is="placeholderLoadingModal"></template>
+  </block>
+  <block wx:else>
+    <view class="fixed">
+      <image src="{{currentLottery.prize_image}}" class="cover"></image>
+      <view class="prize">
+        <view class="name">{{ currentLottery.prize_name }}</view>
+        <view class="sponsor">由{{currentLottery.prize_sponsor_name}}赞助 送 {{currentLottery.lucky_limit}} 份</view>
+      </view>
+      <view class="line"></view>
+    </view>
+    <view class="participant-panel">
+      <view class="title">已有 <text>{{totalJoinedCount}}</text> 人参与</view>
+      <view class="joined-users">
+        <image wx:for="{{joinedUser}}" src="{{item.avatar}}"></image>
+      </view>
+    </view>
+    <form class="back-form" report-submit bindsubmit="back">
+      <button class="back-btn" form-type="submit">
+        {{wordListData.common__back_lottery_btn}}
+      </button>
+    </form>
+  </block>
+
+</view>

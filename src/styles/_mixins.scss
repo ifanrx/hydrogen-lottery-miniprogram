@@ -1,0 +1,33 @@
+// Basic color
+$color-black: rgba(0, 0, 0, .9);
+$color-coral: #128bf8;
+$color-pink: #ff8383;
+$color-gray: #9b9b9b;
+$color-marine: #50e3c2;
+$color-gold: #ffd764;
+$color-brown: #4a4a4a;
+$color-white: #ececec;
+$color-bg: #128bf8;
+
+@mixin elps() {
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+// reset style
+button {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+button::after {
+  display: none;
+}
+
+.button-hover {
+  background-color: transparent;
+}

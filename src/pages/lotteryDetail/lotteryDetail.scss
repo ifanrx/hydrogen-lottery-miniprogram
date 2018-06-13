@@ -1,0 +1,81 @@
+.lottery-detail-page {
+  .fixed {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: #fff;
+  }
+
+  .cover {
+    width: 100%;
+    height: 200px;
+  }
+
+  .prize {
+    padding: 30rpx;
+
+    .name {
+      font-size: 30rpx;
+      font-weight: bold;
+      line-height: 45rpx;
+    }
+
+    .sponsor {
+      font-size: 28rpx;
+      font-weight: bold;
+      color: #128bf8;
+    }
+  }
+
+  .line {
+    width: 100%;
+    height: 8rpx;
+    background-color: #128bf8;
+  }
+
+  .participant-panel {
+    padding: 50rpx;
+    text-align: center;
+    color: #9b9b9b;
+    font-size: 26rpx;
+    margin-top: 545rpx;
+
+    .title {
+      margin-bottom: 20rpx;
+
+      text {
+        color: #128bf8;
+      }
+    }
+
+    .joined-users {
+      width: 620rpx;
+      text-align: left;
+      margin: 0 auto;
+    }
+
+    image {
+      margin-right: 20rpx;
+      margin-bottom: 20rp;
+      width: 60rpx;
+      height: 60rpx;
+
+      &:nth-child(8n) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .back-btn {
+    width: 600rpx;
+    height: 108rpx;
+    color: #fff;
+    background-color: #128BF8;
+    font-size: 36rpx;
+    line-height: 108rpx;
+    border-radius: 100rpx;
+    position: fixed;
+    bottom: 100rpx;
+    right: 75rpx;
+  }
+}

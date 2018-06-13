@@ -1,0 +1,314 @@
+@import '../../templates/placeholderLoadingModal/placeholderLoadingModal.scss';
+@import '_mixins';
+
+.page-container {
+  width: 100%;
+  min-height: 100vh;
+  padding-bottom: 140rpx;
+}
+
+// 去除 button 的默认样式
+button {
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  text-align: left;
+  font-size: 28rpx;
+
+  &::after {
+    border: 0;
+  }
+}
+
+.page-head-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 999;
+}
+
+.user-lottery-state {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 60rpx;
+
+  .icon-hungry {
+    width: 76rpx;
+    height: 76rpx;
+  }
+
+  .user-lottery-state-logo-wrapper {
+    .avatar {
+      display: flex;
+    }
+
+    .avatar-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 70rpx;
+      height: 70rpx;
+      border: 4rpx solid #128bf8;
+      border-radius: 50%;
+    }
+
+    .self {
+      position: relative;
+      left: -20rpx;
+    }
+  }
+
+  .user-lottery-state-label {
+    margin-top: 24rpx;
+    height: 34rpx;
+    font-size: 24rpx;
+    color: #4A4A4A;
+  }
+
+  .user-lottery-state-text {
+    font-size: 42rpx;
+    font-weight: bold;
+    color: #128bf8;
+    margin-bottom: 24rpx;
+  }
+
+  .action-group {
+    position: relative;
+    display: flex;
+    margin-bottom: 44rpx;
+
+    .btn-action {
+      width: 160rpx;
+      height: 42rpx;
+      line-height: 42rpx;
+      font-size: 20rpx;
+      border-radius: 21rpx;
+      background-color: #128bf8;
+      color: #FFF;
+      text-align: center;
+      margin-right: 24rpx;
+    }
+
+    .help-text-wrapper {
+      position: absolute;
+      right: 0;
+      bottom: -26rpx;
+      font-size: 24rpx;
+      font-weight: bold;
+      line-height: 1.5;
+      text-align: right;
+      color: #FF4646;
+    }
+
+    .icon-hand-point-to-down-direction {
+      width: 24rpx;
+      height: 34rpx;
+    }
+
+    .help-text-wrapper.lucky {
+      text-align: left;
+      right: -40rpx;
+      transform: rotate(25deg);
+    }
+  }
+}
+
+.current-lottery-prize {
+  box-sizing: border-box;
+  display: flex;
+  width: 700rpx;
+  height: 162rpx;
+  align-items: center;
+  padding-left: 30rpx;
+  border-radius: 48rpx;
+  background-color: #FFF;
+  border: solid 8rpx #128bf8;
+  margin: auto;
+  margin-bottom: 48rpx;
+
+  .prize-image {
+    width: 108rpx;
+    height: 108rpx;
+    border-radius: 36rpx;
+    background-color: #D8D8D8;
+    margin-right: 32rpx;
+  }
+
+  .prize-info-wrapper {
+    width: 470rpx;
+    height: 98rpx;
+    padding-top: 10rpx;
+    text-align: left;
+  }
+
+  .prize-name-label {
+    width: 100%;
+    height: 28rpx;
+    line-height: 28rpx;
+    font-size: 20rpx;
+    font-weight: bold;
+    color: #128bf8;
+    margin-bottom: 8rpx;
+  }
+
+  .prize-name {
+    width: 100%;
+    height: 64rpx;
+    font-size: 24rpx;
+    font-weight: bold;
+    line-height: 1.33;
+    color: #000;
+  }
+}
+
+.latest-active-lottery {
+  position: relative;
+
+  .latest-active-lottery-background {
+    width: 100%;
+    height: 314rpx;
+    background-color: #128bf8;
+    margin-bottom: 264rpx;
+  }
+
+  .latest-active-lottery-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+
+    .title {
+      height: 46rpx;
+      font-weight: bold;
+      color: #FFF;
+      margin-top: 34rpx;
+      margin-bottom: 34rpx;
+      text-align: center;
+    }
+
+    .latest-active-lottery-prize-wrapper {
+      box-sizing: border-box;
+      width: 700rpx;
+      height: 440rpx;
+      padding: 16rpx;
+      border-radius: 48rpx;
+      background-color: #FFF;
+      box-shadow: 0 2rpx 8rpx 0 rgba(0, 0, 0, .16);
+      margin: auto;
+    }
+  }
+}
+
+.latest-active-lottery-prize-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  .prize-image {
+    width: 100%;
+    height: 296rpx;
+    background-color: #D8D8D8;
+    border-radius: 40rpx;
+  }
+
+  .info-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 22rpx;
+    margin-left: 40rpx;
+
+    .emoji {
+      width: 80rpx;
+      height: 80rpx;
+      margin-right: 40rpx;
+    }
+
+    .prize-info {
+      width: 484rpx;
+    }
+
+    .name {
+      width: 100%;
+      min-width: 500rpx;
+      height: 34rpx;
+      line-height: 34rpx;
+      font-size: 24rpx;
+      font-weight: bold;
+      color: #000;
+      @include elps();
+    }
+
+    .nav-to-detail {
+      width: 100%;
+      height: 28rpx;
+      line-height: 28rpx;
+      font-size: 20rpx;
+      font-weight: bold;
+      color: #128bf8;
+    }
+  }
+}
+
+.current-lottery-lucky {
+  width: 460rpx;
+  margin: auto;
+
+  .title {
+    height: 40rpx;
+    font-weight: bold;
+    text-align: center;
+    color: rgba(0, 0, 0, .9);
+    margin-bottom: 24rpx;
+  }
+
+  .list {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20rpx;
+
+    .avatar-wrapper {
+      padding: 8rpx;
+    }
+
+    .avatar {
+      width: 60rpx;
+      height: 60rpx;
+    }
+  }
+
+  .additional-description-for-lucky {
+    line-height: 28rpx;
+    font-size: 20rpx;
+    text-align: center;
+    color: #4A4A4A;
+    margin-bottom: 42rpx;
+  }
+}
+
+.advertisement {
+  line-height: 34rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+  color: rgba(65, 65, 65, .9);
+  text-align: center;
+  margin-bottom: 10rpx;
+}
+
+.activity-rule {
+  width: 96rpx;
+  height: 34rpx;
+  line-height: 34rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+  text-align: center;
+  color: #4A4A4A;
+  border-bottom: 1px solid #c9c9c9;
+  margin: auto;
+}

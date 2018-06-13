@@ -1,0 +1,184 @@
+<import src="../../templates/placeholderLoadingModal/placeholderLoadingModal.wxml" />
+
+<view class="page-container {{(isIPhoneX || joined) ? 'pb-40rpx' : ''}}" style="background-color: {{joined ? '#128bf8' : ''}}" wx:if="{{inited}}">
+  <view class="page-head-line" style="height: {{statusBarHeight * 2 + 'rpx'}};"></view>
+  <view class="page-hd {{joined ? '' : 'not-joined'}}">
+    <!-- 未参与抽奖 hd -->
+    <view wx:if="{{!joined}}" class="un-joined">
+      <view class="page-hd__title">
+        <view wx:for="{{wordListData.index__user_Join_Tip}}">{{item}}</view>
+      </view>
+      <view class="page-hd__sponsor-name">奖品由 <text class="sponsor-name" bindtap="handleNavToSponsor">{{lottery.prize_sponsor_name || ''}}</text> 赞助 · 共 <text style="color: #fff;font-weight: bold;">{{lottery.lucky_limit || 0}} </text>份</view>
+
+      <form bindsubmit="handleClickContact" report-submit class="page-hd__prize-btn">
+        <button formType="submit" open-type="contact" hover-class="button-hover" class="page-hd__prize-btn">
+          <view class='page-hd__prize-btn-item'>
+            {{wordListData.common__contact_service_btn}}
+          </view>
+        </button>
+      </form>
+
+      <view class="page-hd__contact-tip">
+        <view class="contact-tip1">
+          👈
+        </view>
+        <view class="contact-tip2">
+          <text wx:for="{{wordListData.index__service_tip}}">{{item}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{joined}}" class="has-joined">
+      <view class="page-hd__sponsor-name">由 <text class="sponsor-name" bindtap="handleNavToSponsor">{{lottery.prize_sponsor_name || ''}}</text> 赞助 · 共 <text style="color: #fff;font-weight: bold;">{{lottery.lucky_limit || 0}} </text>份 · {{wordListData.common__lottery_open_time}}</view>
+      <view class="page-hd__count-down">
+        {{countDownTime}}
+      </view>
+      <view class="page-hd__sponsor-name">
+        <text>{{wordListData.common__lottery_time_tip}}</text>
+      </view>
+
+      <form bindsubmit="handleClickContact" report-submit class="page-hd__prize-btn">
+        <button formType="submit" open-type="contact" hover-class="button-hover" class="page-hd__prize-btn">
+          <view class='page-hd__prize-btn-item'>
+            {{wordListData.common__contact_service_btn}}
+          </view>
+        </button>
+      </form>
+
+      <button bindtap="navToAddContact" hover-class="button-hover" class="page-hd__prize-btn">
+        <view class='page-hd__prize-btn-item'>
+          {{wordListData.index__add_contact_info}}
+        </view>
+      </button>
+
+      <view class="page-hd__person_joined" wx:if="{{joined && friendAcceptedInvitation.length > 0}}">
+        <view class="friends-count">
+          你已邀请 <text style="color: #fff; font-weight: bold;">{{friendAcceptedInvitation.length}}</text> 人，超过了 <text style="color: #fff; font-weight: bold;">{{rankInfo}}</text> 的用户
+        </view>
+        <!-- 邀请好友列表 -->
+        <view class="person-joined-list friends ana_link"  bindtap="handleNavToFriendAcceptedInvitation">
+          <image src="{{item.avatar}}" wx:for="{{friendAcceptedInvitation}}" wx:key="{{index}}" wx:if="{{index < 5}}"/>
+          <view wx:if="{{friendAcceptedInvitation.length > 5}}">
+            <text class="dot"></text>
+            <text class="dot"></text>
+            <text class="dot"></text>
+          </view>
+        </view>
+      </view>
+
+      <view class="page-hd__add-contanct-tip">
+        <text wx:if="{{wordListData.index__contact_tips.length}}" wx:for="{{wordListData.index__contact_tips}}">{{item}}</text>
+        <image src="{{HAND_POINTING_DOWN}}" />
+      </view>
+    </view>
+  </view>
+
+  <view class="page-bd" style="padding-bottom: {{ joined ? '' : '50rpx' }}">
+    <view class="page-bd__content" wx:if="{{friendAcceptedInvitation.length <= 0}}">
+      <block>
+        <template is="prizeDetailCardModal" data="{{handleNavToPrizeDetail, joined, friendAcceptedInvitation, lottery, ICON_HEART_FACE, wordListData}}"></template>
+      </block>
+
+      <!-- 未分享出去 -->
+      <block>
+        <template is="shareTipCardModal" data="{{handleShare, joined, friendAcceptedInvitation, lottery, wordListData, generatedCode, handleRuleClicked, ICON_SHARE_QRCODE}}"></template>
+      </block>
+
+    </view>
+
+    <view class="page-bd__content" wx:if="{{friendAcceptedInvitation.length > 0}}">
+      <!-- 未分享出去 -->
+      <block>
+        <template is="shareTipCardModal" data="{{handleShare, joined, friendAcceptedInvitation, lottery, wordListData, generatedCode, handleRuleClicked, ICON_SHARE_QRCODE}}"></template>
+      </block>
+
+      <block>
+        <template is="prizeDetailCardModal" data="{{handleNavToPrizeDetail, joined, friendAcceptedInvitation, lottery, ICON_HEART_FACE, wordListData}}"></template>
+      </block>
+    </view>
+
+    <view class="page-bd__person_joined" wx:if="{{!joined}}">
+      <view class="person-joined-title">
+        已有 <text class="color-tip">{{totalJoinedCount}}</text> 人参与
+      </view>
+
+      <!-- 参与人员列表 -->
+      <view class="person-joined-list ana_link" bindtap="handleNavToAllJoinedPerson">
+        <image src="{{item.avatar}}" wx:for="{{joinedUser}}" wx:key="{{index}}" wx:if="{{index < 5}}"/>
+        <view wx:if="{{joinedUser.length > 5}}" class="nav-to-all-joined-person">
+          <text class="dot"></text>
+          <text class="dot"></text>
+          <text class="dot"></text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 未参与抽奖 -->
+    <view class="not-joined" wx:if="{{!joined}}">
+      <form class="apply-lottery-form" report-submit bindsubmit="handleApplyLottery">
+        <button class="page-bd__join-lottery ana_participate" form-type="submit" open-type="getUserInfo" bindgetuserinfo="handleUserInfo">
+          <text>{{wordListData.index__join_lottery_btn}}</text>
+          <text>{{wordListData.common__lottery_time_tip}}</text>
+        </button>
+      </form>
+    </view>
+
+    <view class="page-bd__slogan {{joined ? 'joined' : 'not-joined'}}">
+      <view class="ana_sponsor ana_ad">{{lottery.prize_sponsor_slogan || ''}}</view>
+      <form bindsubmit="handleRuleClicked" wx:if="{{!joined}}" report-submit>
+        <button class="btn-share btn-golden ana_link" hover-class="button-hover" form-type="submit">{{wordListData.common__lottery_rule}}</button>
+      </form>
+    </view>
+  </view>
+
+  <view class="page-footer__fixed" wx:if="{{!joined}}"></view>
+
+  <template name="prizeDetailCardModal">
+    <form bindsubmit="handleNavToPrizeDetail" report-submit class="page-bd__prize-form {{joined ? 'joined' : 'ana_shop_noparticipate ana_ad'}} {{(joined && (friendAcceptedInvitation.length <= 0)) ? 'no-friends' : ''}} ana_link ana_shop">
+      <button formType="submit" hover-class="button-hover" class="page-bd__prize-card">
+        <view class="page-bd__prize-image" style="background-image: url({{lottery.prize_image}})"></view>
+        <view class="page-bd__prize-tip">
+          <image src="{{ICON_HEART_FACE}}" />
+          <view class="page-bd__prize-tip-item">
+            <view>{{lottery.prize_name}}</view>
+            <view class="color-tip" wx:if="{{!joined}}">{{wordListData.common__go_prize_detail}}</view>
+            <view class="color-tip" wx:if="{{joined}}">{{wordListData.index__direct_purchase_tip}}</view>
+          </view>
+        </view>
+      </button>
+    </form>
+  </template>
+
+  <template name="shareTipCardModal">
+    <view class="page-bd__share-tip {{friendAcceptedInvitation.length > 0 ? 'has-share' : ''}}" wx:if="{{joined}}">
+      <view class="page-bd__share-card">
+        <view class="share-tip-title">
+          <text>{{wordListData.index__share_friends_tip[0]}}</text>
+          <text class="color-tip">{{wordListData.index__share_friends_tip[1]}}</text>
+          <view class="tip-title-item">{{wordListData.index__share_friends_tip[2]}}</view>
+        </view>
+
+        <!-- 分享按钮 A/B test -->
+        <view class="share-tip-btn test-A" wx:if="{{lottery.share_btn_control}}">
+        <form class="share-joined flex-column-direction-horizonal-center ana_share ana_share_link" bindsubmit="handleShare" report-submit>
+            <button class="btn-share btn-golden no-poster-create" form-type="submit" open-type="share">{{wordListData.index__share_friends_btn}}</button>
+          </form>
+        </view>
+
+        <view class="share-tip-btn test-B" wx:if="{{!lottery.share_btn_control}}">
+          <form class="joined flex-column-direction-horizonal-center share-to-friend ana_share ana_share_link" bindsubmit="handleShare" report-submit>
+            <button class="btn-share btn-golden" form-type="submit" open-type="share">{{wordListData.index__share_friends_btn}}</button>
+          </form>
+        </view>
+
+        <form bindsubmit="handleRuleClicked" report-submit class="share-tip-rule">
+          <button class="rule-btn ana_link" hover-class="button-hover" form-type="submit">{{wordListData.common__lottery_rule}}</button>
+        </form>
+      </view>
+    </view>
+  </template>
+</view>
+<!-- placeholder loading modal -->
+<block wx:if="{{!inited}}">
+  <template is="placeholderLoadingModal"></template>
+</block>
