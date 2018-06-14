@@ -26,3 +26,6 @@ yarn run dev-prod   // 访问线上表数据
 ```console
 yarn run build
 ```
+
+## License
+[Apache 2.0](./license.md)
