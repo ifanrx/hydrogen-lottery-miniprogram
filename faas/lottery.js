@@ -22,6 +22,13 @@ const draw = numberOfPeople => times => {
   let res = []
   for (let i = 0; i < times; i++) {
     const luckyOffset = Math.floor(Math.random() * numberOfPeople)
+    res.sort((a, b) => {return a - b})
+    /* 这里也可以构建一个长度为 numberOfPeople 的数组，
+       每次随机选取一个 luckyOffset 后，将 luckyOffset 位置的值移出数组。
+       这样保证了不会重复抽取，但是缺点是比较消耗内存。
+       这里我们采取修正 luckyOffset 的方式，效率更高，两者实现的思路是一致的。
+    */
+    res.forEach(r => { if (r <= luckyOffset) luckyOffset += 1 })
     res.push(luckyOffset)
     numberOfPeople --
   }
